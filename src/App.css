@@ -1,0 +1,72 @@
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.min-h-100dvh { min-height: 100dvh; }
+.h-100dvh { height: 100dvh; }
+
+/* screen push transition */
+.animate-screen {
+  animation: screen-in 0.22s ease-out both;
+}
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* bottom sheet entrance */
+.animate-sheet {
+  animation: sheet-in 0.28s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes sheet-in {
+  from {
+    transform: translateY(60%);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* pop-in for success states and toasts */
+.animate-pop {
+  animation: pop-in 0.24s ease-out both;
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-screen,
+  .animate-sheet,
+  .animate-pop {
+    animation: none;
+  }
+}
+
+/* outside the phone on desktop: subtle backdrop */
+@media (min-width: 768px) {
+  body {
+    background:
+      radial-gradient(1200px 600px at 20% -10%, rgba(241, 70, 53, 0.06), transparent 60%),
+      #E9E9EE;
+  }
+}
